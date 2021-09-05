@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Drum Beats</h1>
+    <div class="keys">
+        <div data-key="65" class="key" >
+            <kbd>A</kbd>
+            <span class="sound">CLAP</span>
+          <audio data-key="65" src="sound/clap.wav"></audio>
+        </div>
+        <div data-key="83" class="key"  >
+            <kbd>S</kbd>
+            <span class="sound">HIHAT</span>
+            <audio data-key="83" src="sound/hihat.wav"></audio>
+        </div>
+        <div data-key="68" class="key"  >
+            <kbd>D</kbd>
+            <span class="sound">KICK</span>
+            <audio data-key="68" src="sound/kick.wav"></audio>
+        </div>
+        <div data-key="70" class="key"  >
+            <kbd>F</kbd>
+            <span class="sound">OPENHAT</span>
+            <audio data-key="70" src="sound/openhat.wav"></audio>
+        </div>
+        <div data-key="71" class="key"  >
+            <kbd>G</kbd>
+            <span class="sound">BOOM</span>
+            <audio data-key="71" src="sound/boom.wav"></audio>
+        </div>
+        <div data-key="72" class="key" >
+            <kbd>H</kbd>
+            <span class="sound">RIDE</span>
+            <audio data-key="72" src="sound/ride.wav"></audio>
+        </div>
+        <div data-key="74" class="key"  >
+            <kbd>J</kbd>
+            <span class="sound">SNARE</span>
+            <audio data-key="74" src="sound/snare.wav"></audio>
+        </div>
+        <div data-key="75" class="key" >
+            <kbd>K</kbd>
+            <span class="sound">TOM</span>
+            <audio data-key="75" src="sound/tom.wav"></audio>
+        </div>
+        <div data-key="76" class="key"  >
+            <kbd>L</kbd>
+            <span class="sound">TINK</span>
+            <audio data-key="76" src="sound/tink.wav"></audio>
+        </div>
+    </div>
+
+<script>
+
+    function playsound(e) {
+        const audio= document.querySelector(`audio[data-key= "${e.keyCode}"]`); //audio connected to key
+        audio.currentTime = 0; //restart 
+        audio.play(); //play audio
+        if(!audio) return; //if no audio is found exit the code
+
+        const key= document.querySelector(`.key[data-key= "${e.keyCode}"]`);
+        key.classList.add('playing'); //for transition
+
+    }
+    
+    function removeTransition(e) {
+        if (e.propertyName !== 'transform') return; //transition removes
+        this.classList.remove('playing'); 
+    }
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+        document.addEventListener('keydown', playsound); 
+        
+</script>
+
+</body>
+</html>
