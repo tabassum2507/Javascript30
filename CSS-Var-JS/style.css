@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+:root {
+    --base: rgb(78, 68, 68);
+    --spacing: 10px;
+    --blur: 0px;
+  }
+
+body{
+    text-align: center;
+    background-image: url('https://images.unsplash.com/photo-1597794254624-4283a6a5a0b9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(19, 17, 17);
+    font-weight: 100;
+    font-size: 30px;
+    text-shadow: 0 0 .5rem rgb(56, 53, 53);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2{
+    font-family: 'Homemade Apple';
+    
+    
+}
+
+.col{
+    font-size: 60px;
+    color: var(--base);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.controls {
+    margin-bottom: 50px;
+}
+
+input{
+    width: 100pz;
+}
+
+img{
+    margin-top: 30px;
+    width: 1200px;
+    border-radius: 40px;
+    box-shadow: 0 0 1rem rgb(41, 38, 38);
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+}
